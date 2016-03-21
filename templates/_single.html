@@ -1,0 +1,65 @@
+<div class="row" ng-show="realSingle.id > 0">
+    <h4>
+        {{realSingle.nome}}
+    </h4>
+    <div class="col s12 m6">
+        <div class="card">
+            <div class="card-image">
+                <img src="{{realSingle.thumb}}"/>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m6">
+        <table>
+            <tr>
+                <td>
+                    <b>
+                        Local
+                    </b>
+                </td>
+                <td>
+                    {{realSingle.local}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>
+                        Preço
+                    </b>
+                </td>
+                <td>
+                    {{realSingle.preco}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>
+                        Descrição
+                    </b>
+                </td>
+                <td>
+                    {{realSingle.sobre}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>
+                        Imagens
+                    </b>
+                </td>
+                <td>
+                    <a href="" ng-repeat="image in realSingle.imagens">
+                        <img src="{{image.url}}" height="50" alt="{{image.name}}" ng-click="realSingle.thumb = image.url"/>
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <a href="mailto:aafonso.93@gmail.com?subject=Interesse no Imóvel {{realSingle.nome}}" class="btn waves-effect waves-light ng-scope">
+            ESTOU INTERESSADO
+        </a>
+    </div>
+</div>
+
+<div class="row" ng-show="realSingle.id == undefined">
+  <h4>Nenhum Imóvel Encontrado</h4>
+</div>

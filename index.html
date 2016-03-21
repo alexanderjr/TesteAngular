@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt" ng-app="ImobBrazil">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>
+            Imobiliária XPTO
+        </title>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" href="css/materialize.min.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo center">
+                        Brasil Imóveis
+                    </a>
+                    <ul id="nav-mobile" class="left hide-on-med-and-down">
+                        <li>
+                            <a href="#">
+                                Pagina Inicial
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#cadastrar">
+                                Cadastrar Imóvel
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+			<ng-view></ng-view>
+        </div>
+        <!-- /container -->
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">
+                            Brasil Imóveis
+                        </h5>
+                        <p class="grey-text text-lighten-4">
+                            Mais uma imobiliária no Brasil.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2016 Todos os Direitos Reservados
+                </div>
+            </div>
+        </footer>
+        <!-- /page-footer -->
+
+        <!--/Materialize-->
+        <script src="js/lib/jquery-2.1.4.min.js"></script>
+        <script src="js/lib/materialize.min.js"></script>
+	
+		<!--/Angular-->
+		<script src="js/lib/angular.min.js"></script>
+		<script src="js/lib/angular-route.js"></script>
+
+		<!--/APP-->
+		<script src="js/app.js"></script>
+		<script src="js/controllers/RealStateController.js"></script>
+		<script src="js/controllers/RealStateSingleController.js"></script>
+		<script src="js/services/RealStateAPI.js"></script>
+
+    </body>
+</html>

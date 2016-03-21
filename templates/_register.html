@@ -1,0 +1,44 @@
+<h4>
+    Novo Imóvel
+</h4>
+<div class="row">
+    <form name="form">
+        <div class="input-field col s12 m4 l4">
+            <input id="nome" name="nome" ng-model="realstate.nome" type="text" value="teste" ng-required="true"/>
+            <label class="active" for="nome">
+                Nome
+            </label>
+        </div>
+        <div class="input-field col s12 m4 l4">
+            <input id="local" name="local" ng-model="realstate.local" type="text" value="teste" ng-required="true"/>
+            <label class="active" for="local">
+                Local
+            </label>
+        </div>
+        <div class="input-field col s12 m4 l4">
+            <input id="preco" name="preco" ng-model="realstate.preco" type="text" value="teste" ng-required="true"/>
+            <label class="active" for="preco">
+                Preço
+            </label>
+        </div>
+        <div class="input-field col s12 m12 l12">
+            <textarea id="sobre" name="sobre" ng-model="realstate.sobre" class="materialize-textarea" ng-required="true">teste
+            </textarea>
+            <label class="active" for="first_name2">
+                Descrição Imóvel
+            </label>
+        </div>
+         <div class="input-field col s12 m4 l12" ng-repeat="image in images">
+            <input type="text" value="teste" ng-required="true" ng-model="image"/>
+            <label class="active" >
+                Imagem (Copie e cole o link da imagem) - 
+            </label>
+            <a class="collection-item"><span class="new badge"  ng-click="removeImage(image);">Remover</span></a>
+        </div>
+        
+        <button type="button" class="btn" ng-click="addImage();">Adicionar Imagem</button>
+        <button type="button" ng-disabled="form.$invalid"class="btn waves-effect waves-light" ng-click="save(realstate);">
+            Cadastrar<i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>
