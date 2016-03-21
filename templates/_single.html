@@ -2,10 +2,12 @@
     <h4>
         {{realSingle.nome}}
     </h4>
+    
     <div class="col s12 m6">
         <div class="card">
             <div class="card-image">
-                <img src="{{realSingle.thumb}}"/>
+                <img src="http://placehold.it/540x360/999?text=Sem Imagem" ng-show="realSingle.thumb.indexOf('.jpg') == -1"/>
+                <img src="{{realSingle.thumb}}" ng-show="realSingle.thumb.indexOf('.jpg') > -1"/>
             </div>
         </div>
     </div>
@@ -49,7 +51,7 @@
                 </td>
                 <td>
                     <a href="" ng-repeat="image in realSingle.imagens">
-                        <img src="{{image.url}}" height="50" alt="{{image.name}}" ng-click="realSingle.thumb = image.url"/>
+                        <img src="{{image.url}}" height="50" alt="{{image.name}}" ng-click="realSingle.thumb = image.url" ng-show="realSingle.thumb.indexOf('.jpg') > -1"/>
                     </a>
                 </td>
             </tr>

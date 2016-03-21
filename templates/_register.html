@@ -4,41 +4,76 @@
 <div class="row">
     <form name="form">
         <div class="input-field col s12 m4 l4">
-            <input id="nome" name="nome" ng-model="realstate.nome" type="text" value="teste" ng-required="true"/>
+            <input id="nome" name="nome" ng-model="realstate.nome" type="text" ng-required="true"/>
             <label class="active" for="nome">
-                Nome
+                Nome*
             </label>
         </div>
         <div class="input-field col s12 m4 l4">
-            <input id="local" name="local" ng-model="realstate.local" type="text" value="teste" ng-required="true"/>
+            <input  id="local" name="local" ng-model="realstate.local" type="text" ng-required="true"/>
             <label class="active" for="local">
-                Local
+                Local*
             </label>
         </div>
         <div class="input-field col s12 m4 l4">
-            <input id="preco" name="preco" ng-model="realstate.preco" type="text" value="teste" ng-required="true"/>
+            <input id="preco" name="preco" ng-model="realstate.preco" type="text" ng-required="true"/>
             <label class="active" for="preco">
-                Preço
+                Preço*
             </label>
         </div>
         <div class="input-field col s12 m12 l12">
-            <textarea id="sobre" name="sobre" ng-model="realstate.sobre" class="materialize-textarea" ng-required="true">teste
+            <textarea id="sobre" name="sobre" ng-model="realstate.sobre" class="materialize-textarea" ng-required="true">Imovel Bacana
             </textarea>
             <label class="active" for="first_name2">
-                Descrição Imóvel
+                Descrição Imóvel*
             </label>
         </div>
-         <div class="input-field col s12 m4 l12" ng-repeat="image in images">
-            <input type="text" value="teste" ng-required="true" ng-model="image"/>
-            <label class="active" >
-                Imagem (Copie e cole o link da imagem) - 
-            </label>
-            <a class="collection-item"><span class="new badge"  ng-click="removeImage(image);">Remover</span></a>
+
+        <h5>Imagem</h5>
+            <div class="input-field col s12 m4 l12">
+                <input type="text" value="" ng-model="image.name" />
+                <label class="active">
+                    Nome*
+                </label>
+            </div>
+            <div class="input-field col s12 m4 l12">
+                <input type="text" value="" ng-model="image.url" />
+                <label class="active">
+                    Imagem (Copie e cole o link da imagem)* 
+                </label>
+            </div>
         </div>
+    
+        <button type="button" class="btn" ng-click="addImage(image);" ng-disabled="image.name == '' || image.url == ''">Adicionar Imagem</button>
+
+        <br><br>
+
+        <ul class="collection with-header">
+             <li class="collection-header"><h5>Painel de Imagens</h5></li>
+             
+             <li class="collection-item avatar" ng-repeat="img in images">
+                <img src="{{img.url}}" alt="" class="circle">
+                <span class="title">{{img.nome}}</span>
+                <p>{{img.url}}</p>
+                <a class="secondary-content"><i class="material-icons dp48" ng-click="removeImage(img);">delete</i></a>
+             </li> 
+
+            <li class="collection-item" ng-show="images.length == 0">
+                Nenhuma Imagem Adicionada
+            </li>
+        </ul>
         
-        <button type="button" class="btn" ng-click="addImage();">Adicionar Imagem</button>
-        <button type="button" ng-disabled="form.$invalid"class="btn waves-effect waves-light" ng-click="save(realstate);">
+        <button type="button" ng-disabled="form.$invalid" class="btn waves-effect waves-light" ng-click="save(realstate);">
             Cadastrar<i class="material-icons right">send</i>
         </button>
+    
+        <p class="alert success" ng-show="status.status == 'success'">
+            {{status.message}}
+        </p>
+
+        <p class="alert error" ng-show="status.status == 'error'">
+            {{status.message}}
+        </p>
+
     </form>
 </div>

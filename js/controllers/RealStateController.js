@@ -3,6 +3,8 @@ app.controller("RealStateController", function ($scope,$routeParams,RealStateAPI
 	$scope.itens      = [];
 	$scope.realSingle = [];
 
+	// console.log($scope.loading)
+
 	//LIST 
 	RealStateAPI.get().then(function(result) {
         $scope.itens = result.data["results"];
@@ -16,13 +18,12 @@ app.controller("RealStateController", function ($scope,$routeParams,RealStateAPI
 		            	$scope.realSingle = result[key];
 		            	$scope.realSingle.thumb = $scope.realSingle.imagens[0].url;
 						$scope.thumb      = null;
-						// window.location = '/';
 		            }
 		        }
 		    });
 		}
 		
-    	console.log($scope.itens);
+    	// console.log($scope.itens);
     }, function(error) {
         console.log(error);
     });

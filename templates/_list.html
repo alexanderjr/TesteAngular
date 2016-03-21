@@ -1,12 +1,12 @@
 <h5>
     {{itens.length}} Imóveis Encontrados
 </h5>
-<div class="row">
+<div class="row" ng-show="itens.length > 0">
     <div class="col s12 m6 l4 item" ng-repeat="item in itens">
         <div class="card">
             <div class="card-image">
-                <img src="http://placehold.it/350x150/999"/>
-                <!-- <img src="{{item.imagens[0].url}}"/> -->
+                <img src="http://placehold.it/350x150/999?text=Sem Imagem" ng-show="item.imagens[0].url.indexOf('.jpg') == -1"/>
+                <img src="{{item.imagens[0].url}}" ng-show="item.imagens[0].url.indexOf('.jpg') > -1"/>
                 <span class="card-title">
                     {{item.nome}}
                 </span>
@@ -28,6 +28,7 @@
         <!-- /card -->
     </div>
     <!-- /item -->
+
 </div>
 <!--
     /row
